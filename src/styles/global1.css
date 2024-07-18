@@ -1,6 +1,6 @@
-html{min-height:100dvh; background:var(--theme-ui-colors-siteBackground); z-index: -1;}
+html{min-height:100dvh; z-index: -1;}
 
-body{z-index: 0; background:var(--theme-ui-colors-siteBackground);overscroll-behavior:none; min-height:100dvh; max-width: 100dvw; width:100vw; overflow-x: hidden; margin:0 auto; padding:0;}
+body{z-index: 0; overscroll-behavior:none; min-height:100dvh; max-width: 100dvw; width:100vw; overflow-x: hidden; margin:0 auto; padding:0;}
 
 ::-webkit-scrollbar,::-webkit-scrollbar-button{height:1px;width:1px}
 
