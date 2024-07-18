@@ -67,7 +67,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 	<div class="scroll-container">
 		<!-- <h1 class="center title">Welcome to this website</h1> -->
 		<!-- <div class="contentpanel horizontal-scroll panels"> -->
-		<div class="contentpanel grid-container">
+		<div class="contentpanel grid-container panels">
 			<div class="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
 
 			{allPostsByDate.map((p) => <PostPreview post={p} as="h2" withDesc />)}

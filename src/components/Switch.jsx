@@ -60,12 +60,30 @@ function Switch() {
     elements.forEach((el) => {
       if (isSliderVisible) {
         el.classList.remove('grid-container');
-        el.classList.add('horizontal-scroll', 'panels');
+        el.classList.add('slider', 'panels');
       } else {
         el.classList.add('grid-container');
-        el.classList.remove('horizontal-scroll', 'panels');
+        el.classList.remove('slider', 'panels');
       }
     });
+
+    const handleWheelScroll = (event) => {
+      if (isSliderVisible) {
+        event.preventDefault();
+        const container = event.currentTarget;
+        container.scrollLeft += event.deltaY;
+      }
+    };
+
+    elements.forEach((el) => {
+      el.addEventListener('wheel', handleWheelScroll);
+    });
+
+    return () => {
+      elements.forEach((el) => {
+        el.removeEventListener('wheel', handleWheelScroll);
+      });
+    };
   }, [isSliderVisible]);
 
   return (
@@ -91,7 +109,7 @@ function Switch() {
         ) : (
           <div className="themer"><PiHandSwipeRightFill style={{ width: '36px', height: '30px' }} /></div>
         )}
-        <span className="themetext" style={{ fontSize: '' }}>
+        <span className="themetext" style={{ fontSize: '.6rem' }}>
           {isSliderVisible ? "Scroll" : "Swipe"}
         </span>
       </button>
