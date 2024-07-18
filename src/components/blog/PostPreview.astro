@@ -14,7 +14,7 @@ const { post, withDesc = false } = Astro.props;
 ---
 
 <!-- <FormattedDate date={postDate} class="min-w-[120px] text-gray-500" /> --><!-- <Tag> -->
-<div class="post-card1">
+<div class="post-card1" transition:animate="slide">
 	<a href={`/posts/${post.slug}/`} class="cactus-link" rel="prefetch">
 		<!-- {post.data.tags} -->
 

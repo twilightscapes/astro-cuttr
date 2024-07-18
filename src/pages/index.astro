@@ -53,7 +53,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
-	<section style="padding:60px 5% 0 5%">
+	<!-- <section style="padding:60px 5% 0 5%">
 		<h1 class="title mb-6">Hello World!</h1>
 		<p class="mb-4">
 			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
@@ -61,13 +61,13 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 			your own, click on the github icon link below and it will take you to my repo.
 		</p>
 		<SocialList />
-	</section>
+	</section> -->
 
 
 	<div class="scroll-container">
-		<h1 class="center title">Welcome to this website</h1>
-		<div class="contentpanel horizontal-scroll panels">
-		<!-- <div class="contentpanel grid-container"> -->
+		<!-- <h1 class="center title">Welcome to this website</h1> -->
+		<!-- <div class="contentpanel horizontal-scroll panels"> -->
+		<div class="contentpanel grid-container">
 			<div class="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
 
 			{allPostsByDate.map((p) => <PostPreview post={p} as="h2" withDesc />)}
@@ -137,10 +137,10 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 			}
 		</ul>
 	</section> -->
-	<section class="mt-16">
+	<!-- <section class="mt-16">
 		<h2 class="title mb-4 text-xl">Technologies</h2>
 		<dl class="space-y-4">
 			
 		</dl>
-	</section>
+	</section> -->
 </PageLayout>

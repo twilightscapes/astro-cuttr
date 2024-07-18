@@ -39,6 +39,8 @@
   
   body.gallery .slider {margin-top:0; padding-top:0;}
   body.gallery .grid-container {margin-top:100px; padding-top:0;}
+
+.grid-container {margin-top:50px; padding-top:0;transition:transform .2s;}
   
   ::-webkit-scrollbar,::-webkit-scrollbar-button{height:1px;width:1px}
   
@@ -317,6 +319,7 @@
     box-sizing: border-box;
     break-inside: avoid;
     border-radius: var(--theme-ui-colors-borderRadius);
+    transition:transform .2s;
   }
   
   
@@ -739,7 +742,12 @@
   
   
   
-  .horizontal-scroll{max-height:100vw;overflow-y:auto;position:relative; scroll-padding:0 5%;transform:rotate(-90deg) translateY(-100%);transform-origin:right top;transition:transform .2s;width:100%}
+  .horizontal-scroll{max-height:100vw;overflow-y:auto;position:relative; scroll-padding:0 5%;
+    
+    transform:rotate(-90deg) translateY(-100%);transform-origin:right top;
+    transition:transform .2s;
+    
+    width:100%}
   .horizontal-scroll img{max-height:65vh;object-fit:contain;}
   .horizontal-scroll,.horizontal-scroll>*{display:block;overscroll-behavior:contain;padding:0}
   .horizontal-scroll>*{scroll-snap-align:center;transform:rotate(90deg);transform-origin:right top}
@@ -1082,7 +1090,7 @@
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       padding-bottom: 10vh;
       padding-top:0px;
-      border:0px solid yellow;
+      border:0px solid yellow;transition:transform .2s;
       /* grid-auto-flow: dense; */
     }
   
@@ -1391,7 +1399,7 @@
   
   @media(max-width:48rem) {
   /* .grid-container {margin:0 auto 0 auto ; margin-top:0; } */
-  .grid-container {margin-top:0; padding-top:16vh !important;}
+  .grid-container {margin-top:0; padding-top:16vh !important;transition:transform .2s;}
   .slider{margin:5vh auto 0 auto !important;}
   .slider .loadmore{height:40vh}
   .magicisland {margin-top:10vh;}
@@ -1916,7 +1924,7 @@
       place-content: start;
       color:var(--theme-ui-colors-headerColorText);
       justify-content: center;
-      flex: 0 0 33.3333%;
+      flex: 0 0 33.3333%;transition:transform .2s;
     }
   
   
