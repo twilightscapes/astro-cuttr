@@ -3,10 +3,10 @@ import ThemeToggle from "../ThemeToggle.astro";
 import Search from "../Search.astro";
 import { menuLinks } from "@/site-config";
 
-// import { Image } from "astro:assets";
+import { Image } from "astro:assets";
 import localBirdImage from "../../../src/assets/Cuttr-logo-wht.svg";
 // import BackgroundImage from "../../../src/assets/newspaper.webp";
-import Switch from "../Switch.astro";
+import Switch from "../Switch.jsx"
 
 
 const url = new URL(Astro.request.url);
@@ -53,8 +53,18 @@ const url = new URL(Astro.request.url);
 	}}
 >
 	<a href="/" class="cornerlogo" aria-current={url.pathname === "/" ? "page" : false}>
-		<!-- <Image src={localBirdImage} alt="A bird sitting on a nest of eggs." /> -->
-		<img
+		<Image src={localBirdImage} alt="A bird sitting on a nest of eggs." class="cornerlogo" style={{
+			position: "absolute",
+			top: "",
+			left: "30px",
+			border: "0px solid white",
+			padding: "0",
+			maxHeight: "60px",
+			maxWidth: "100px",
+		}}
+			loading="eager"
+			fetchpriority="high" />
+		<!-- <img
 			class="cornerlogo"
 			src={localBirdImage.src}
 			alt="A bird sitting on a nest of eggs."
@@ -71,7 +81,7 @@ const url = new URL(Astro.request.url);
 			height="100%"
 			loading="eager"
 			fetchpriority="high"
-		/>
+		/> -->
 	</a>
 
 	<ul
@@ -121,7 +131,7 @@ const url = new URL(Astro.request.url);
 	>
 		<Search />
 		<ThemeToggle />
-		<Switch />
+		<Switch client:load />
 		<!-- <Switch client:load /> -->
 	</div>
 </div>
