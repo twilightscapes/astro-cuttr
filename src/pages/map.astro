@@ -7,16 +7,17 @@ const meta = {
 	title: "About",
 };
 ---
-<body class="install" style="padding:none; margin:none;"><PageLayout meta={meta}>
+<body class="install" style="padding:0 !important; margin:0 !important;">
+    <PageLayout meta={meta}>
 
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css">
-    <style>
+    <style scoped>
     body {
-        padding: 0;
-        margin: 0;
+        padding: 0 !important;
+        margin: 0 !important;
         overflow: hidden;
         max-width: 100vw;
         max-height: 100vh;
