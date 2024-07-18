@@ -1,25 +1,71 @@
 ---
-import type { HTMLTag, Polymorphic } from "astro/types";
 import type { CollectionEntry } from "astro:content";
-
-import { getPostSortDate } from "@/data/post";
-
-import FormattedDate from "../FormattedDate.astro";
+import type { HTMLTag, Polymorphic } from "astro/types";
+// import FormattedDate from "../FormattedDate.astro";
+import { Image } from "astro:assets";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	post: CollectionEntry<"post">;
 	withDesc?: boolean;
 };
 
-const { as: Tag = "div", post, withDesc = false } = Astro.props;
-const postDate = getPostSortDate(post);
+const { post, withDesc = false } = Astro.props;
+// const postDate = post.data.updatedDate ?? post.data.publishDate;
 ---
 
-<FormattedDate class="min-w-[120px] text-gray-600 dark:text-gray-400" date={postDate} />
-<Tag>
-	{post.data.draft && <span class="text-red-500">(Draft) </span>}
-	<a class="cactus-link" data-astro-prefetch href={`/posts/${post.slug}/`}>
-		{post.data.title}
+<!-- <FormattedDate date={postDate} class="min-w-[120px] text-gray-500" /> --><!-- <Tag> -->
+<div class="post-card1">
+	<a href={`/posts/${post.slug}/`} class="cactus-link" rel="prefetch">
+		<!-- {post.data.tags} -->
+
+		{/* Check if coverImage exists and is an object */}
+		{
+			post.data.coverImage && typeof post.data.coverImage === "object" ? (
+				<Image
+					src={post.data.coverImage.src}
+					alt={post.data.coverImage.alt}
+					class="object-cover"
+					loading="eager"
+					fetchpriority="high"
+				/>
+			) : null
+		}
+
+		{/* Check if coverImage exists and is a string */}
+		{
+			typeof post.data.coverImage === "string" ? (
+				<img id="1" src={import.meta.env.BASE_URL + post.data.coverImage} alt="" />
+			) : null
+		}
+		<div
+			class="panel"
+			style={{
+				display: "flex",
+				justifyContent: "space-between",
+				// maxHeight: "30%",
+				rowGap: "0",
+				columnGap: "0.4vw",
+				textAlign: "center",
+				flexDirection: "column",
+				padding: "1vh 1vw",
+				fontSize: "clamp(1rem, 1rem, 1rem)",
+			}}
+		>
+			<h2 class="title" style={{ color: "#ddd", fontSize: "clamp(.8rem, .8vw, 1.1rem)" }}>
+				{post.data.title}
+			</h2>
+
+			{
+				withDesc && (
+					<q
+						class="line-clamp-1 block italic"
+						style={{ maxWidth: "", fontSize: "clamp(.8rem, .8vw, 1.1rem)" }}
+					>
+						{post.data.description}
+					</q>
+				)
+			}
+		</div>
 	</a>
-</Tag>
-{withDesc && <q class="line-clamp-3 italic">{post.data.description}</q>}
+</div>
+<!-- </Tag> -->

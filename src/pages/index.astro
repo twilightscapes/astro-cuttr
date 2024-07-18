@@ -62,7 +62,70 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 		</p>
 		<SocialList />
 	</section>
-	<section aria-label="Blog post list" class="mt-16"  style="padding:60px 5% 0 5%">
+
+
+	<div class="scroll-container">
+		<h1 class="center title">Welcome to this website</h1>
+		<!-- <div class="contentpanel horizontal-scroll panels"> -->
+		<div class="contentpanel grid-container">
+			<div class="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
+
+			{allPostsByDate.map((p) => <PostPreview post={p} as="h2" withDesc />)}
+
+			<div
+				style={{
+					textAlign: "center",
+					display: "grid",
+					placeContent: "center",
+					padding: "1vh 1vw",
+					// background: "rgba(0, 0, 0, .6)",
+					// height: "75vh",
+					width: "100%",
+					position: "relative",
+					top: "0",
+					// border: "3px solid #000",
+					borderRadius: "12px",
+					transition: "all .3s ease-in-out",
+				}}
+			>
+				<div
+					class="panel"
+					style={{
+						maxWidth: "500px",
+						color: "#ddd",
+						borderRadius: "5px",
+						border: "4px solid #222",
+					}}
+				>
+					<h3>Wanna view more?</h3>
+					<br />
+					<a
+						class="button"
+						href="/posts/"
+						style={{
+							textDecoration: "none",
+							color: "#fff",
+							textAlign: "center",
+						}}
+					>
+						View More
+					</a>
+				</div>
+			</div>
+			<!-- <div
+				style={{
+					textAlign: "center",
+					display: "grid",
+					placeContent: "center",
+					padding: "10% 0 0 0",
+				}}
+			>
+			</div> -->
+		</div>
+	</div>
+
+
+	<!-- <section aria-label="Blog post list" class="mt-16"  style="padding:60px 5% 0 5%">
 		<h2 class="title mb-4 text-xl">Posts</h2>
 		<ul class="space-y-4">
 			{
@@ -73,7 +136,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 				))
 			}
 		</ul>
-	</section>
+	</section> -->
 	<section class="mt-16">
 		<h2 class="title mb-4 text-xl">Technologies</h2>
 		<dl class="space-y-4">
