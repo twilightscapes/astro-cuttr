@@ -9,7 +9,8 @@ body{z-index: 0; overscroll-behavior:none; min-height:100dvh; max-width: 100dvw;
 #menu,.menu,.font,.full-width-image:after,.h1,.h2,.h3,.h4,.header .menu-icon:before,.slider:before,.intro:after,.intro:before,.scrolldown,h1,h2,h3,h4,input.special{font-family:Comfortaa;}
 
 
-body.install .topmenu, body.install .missioncontrol{visibility: hidden;}
+body.install .topmenu, body.install .missioncontrol, body.install #gobacker{visibility: hidden;}
+
 
 
 header.header {height:0;}
@@ -24,10 +25,14 @@ body.install #menu{margin-bottom: 0;}
   padding:20px;
 }
 
+#gobacker{position:fixed; display:flex; top:80px ; right:1vw; z-index:11;}
+body.homepage #gobacker{display:none;}
+
 .post-card1{
   display: flex;
   flex-direction: column;
   height: auto;
+  width: auto;
 }
 
 .grid-container .panel, .grid-container .title1, .slider .title1{
