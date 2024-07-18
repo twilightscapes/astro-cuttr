@@ -17,6 +17,9 @@ header.header {height:0;}
 
 #menu{margin-bottom: 3vh;}
 body.install #menu{margin-bottom: 0;}
+body.map #menu {margin-bottom:0;}
+body.map #gobacker {display:none;}
+
 
 .container { 
   display: grid;
