@@ -51,15 +51,15 @@ const { post, withDesc = false } = Astro.props;
 				fontSize: "clamp(1rem, 1rem, 1rem)",
 			}}
 		>
-			<h2 class="title" style={{ color: "#ddd", fontSize: "clamp(.8rem, .8vw, 1.1rem)" }}>
+			<h2 class="title" style={{ color: "", fontSize: "" }}>
 				{post.data.title}
 			</h2>
 
 			{
 				withDesc && (
 					<q
-						class="line-clamp-1 block italic"
-						style={{ maxWidth: "", fontSize: "clamp(.8rem, .8vw, 1.1rem)" }}
+						class="line-clamp-1 block"
+						style={{ maxWidth: "",  }}
 					>
 						{post.data.description}
 					</q>

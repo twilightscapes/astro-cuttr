@@ -14,7 +14,7 @@
 		},
 		"jsx": "react-jsx",
 		"jsxImportSource": "react",
-		"types": ["leaflet"]
+		
 	},
 	"include": ["./.eslintrc.cjs", "**/*"],
 	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
