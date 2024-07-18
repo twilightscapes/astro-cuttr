@@ -1,0 +1,81 @@
+---
+import { BsFillGrid3X2GapFill } from "react-icons/bs";
+import { PiHandSwipeRightFill } from "react-icons/pi";
+
+// Define the initial state in a reactive variable
+let isSliderVisible = false;
+
+// Function to update the class names
+function updateClassNames() {
+  const elements = document.querySelectorAll(".contentpanel.grid-container, .contentpanel.horizontal-scroll.panels");
+  elements.forEach(element => {
+    element.className = isSliderVisible ? "contentpanel horizontal-scroll panels" : "contentpanel grid-container";
+  });
+  console.log("Class names updated:", elements);
+}
+
+// Function to toggle the slider visibility
+function toggleSlider() {
+  isSliderVisible = !isSliderVisible;
+  console.log("Slider visibility toggled:", isSliderVisible);
+
+  if (typeof window !== 'undefined') {
+    localStorage.setItem("isSliderVisible", JSON.stringify(isSliderVisible));
+    updateClassNames();
+  }
+}
+
+// Event listener for storage change
+function handleStorageChange(event) {
+  if (event.key === "isSliderVisible" || event.type === "storage") {
+    const storedValue = localStorage.getItem("isSliderVisible");
+    isSliderVisible = JSON.parse(storedValue);
+    updateClassNames();
+  }
+}
+
+// Add event listeners once the window has loaded
+if (typeof window !== 'undefined') {
+  window.addEventListener("storage", handleStorageChange);
+  window.addEventListener("DOMContentLoaded", () => {
+    const storedValue = localStorage.getItem("isSliderVisible");
+    isSliderVisible = JSON.parse(storedValue) ?? false;
+    updateClassNames();
+  });
+  console.log("Event listeners added");
+}
+---
+
+<button
+  aria-label="Toggle View"
+  on:click={() => {
+    toggleSlider();
+    console.log("Button clicked");
+  }}
+  class="swipescroll"
+  style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 0px; text-align: center; width: 100%; cursor: pointer;"
+>
+  {isSliderVisible ? (
+    <div class="themer"><BsFillGrid3X2GapFill style="width: 36px; height: 30px;" /></div>
+  ) : (
+    <div class="themer"><PiHandSwipeRightFill style="width: 36px; height: 30px;" /></div>
+  )}
+  <span class="themetext" style="font-size: '';">
+    {isSliderVisible ? "Scroll" : "Swipe"}
+  </span>
+</button>
+
+<style scoped>
+  .swipescroll {
+    cursor: pointer;
+  }
+  .themer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .themetext {
+    margin-top: 5px;
+    font-size: 1rem;
+  }
+</style>
