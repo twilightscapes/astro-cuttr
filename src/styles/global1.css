@@ -12,6 +12,9 @@ body.install .topmenu, body.install .missioncontrol{visibility: hidden;}
 
 header.header {height:0;}
 
+#menu{margin-bottom: 5vh;}
+body.install #menu{margin-bottom: 0;}
+
 .container { 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -44,7 +47,6 @@ header.header {height:0;}
   padding-bottom: 10vh;
   padding-top:0px;
   border:0px solid yellow;transition:transform .2s;
-  /* grid-auto-flow: dense; */
 }
 
 
@@ -130,39 +132,24 @@ header.header {height:0;}
     flex-direction: row;
     -webkit-overflow-scrolling: touch;
     gap: 20vw;
-    /* justify-items: center; */
-    /* justify-content: center; */
-    /* justify-self: center; */
-    /* align-items: center;
+    justify-items: center;
+    align-items: center;
     align-content: center;
-    align-self: center; */
+    align-self: center;
     scroll-padding: 0 5vw;
     overscroll-behavior: contain;
     scroll-snap-align: center;
-    transition:transform .8s;
+    transition:transform .3s;
     margin:0 0 0 0 ;
-    /* padding:4vh 5vw 0 10vw; */
     overflow-x: scroll;
     overflow-y: hidden;
-    /* white-space:nowrap; */
     z-index: 0;
     position:relative;
     top:0;
-    /* min-height: 70vh; */
     min-width: 100vw;
   }
 
-  .quotecard {
-    display: flex;
-    /* width:300px !important; */
-    background:rgba(0,0,0,0.80);
-    backdrop-filter:blur(12px);
-    border:0px solid;
-    /* margin-left:-20vw; */
-    color:#fff;
-    padding:1vh 1vw;
-    border-radius: var(--theme-ui-colors-borderRadius) !important;
-  }
+
 
 
 
@@ -179,7 +166,7 @@ min-width: 80vw;
   }
 
   .grid-container .post-card1 {
-    /* min-height:  30vh; */
+    min-height:  30vh;
     max-height: 30vh;
     display: grid;
     place-content: start;
@@ -195,7 +182,7 @@ min-width: 80vw;
 
 
   @media(hover:none) {
-    .slider{scroll-snap-type:x mandatory}
+    .slider{scroll-snap-type:mandatory}
     .slider .post-card1 {
       scroll-snap-align: center;
       min-width: 100%;
@@ -203,11 +190,11 @@ min-width: 80vw;
     }
   
   @media(hover:hover) {
-    .slider{scroll-snap-type:none}
-    /* .slider .post-card1 {
+    .slider{scroll-snap-type:mandatory}
+    .slider .post-card1 {
       scroll-snap-align: center;
       min-width: 100%;
-    } */
+    }
     }
   @media(pointer:coarse) {
     .slider{scroll-snap-type:x mandatory;}
@@ -217,16 +204,4 @@ min-width: 80vw;
 
   @media(max-width:48rem) {
     .mobilehide{display:none}
-
-    .horizontal-scroll .post-card1 .inline * {
-      position:relative !important;
-      border: none !important;
-      max-width: 90vw !important;
-      max-height:400px !important;
-      box-shadow: none !important;
-      margin:0 auto !important;
-      /* height: 100% !important; */
-      .tagline1, .title1{text-align: center !important;}
-    }
-
   }
