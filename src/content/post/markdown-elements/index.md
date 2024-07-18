@@ -4,7 +4,7 @@ description: "This post is for testing and listing a number of different markdow
 publishDate: "22 Feb 2023"
 updatedDate: 22 Jan 2024
 coverImage:
-  src: "./cover.png"
+  src: "../../../assets/cover.png"
   alt: "Astro build wallpaper"
 tags: ["test", "markdown"]
 ---

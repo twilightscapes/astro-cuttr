@@ -3,6 +3,9 @@ title: "Unique tags validation"
 publishDate: "30 January 2023"
 description: "This post is used for validating if duplicate tags are removed, regardless of the string case"
 tags: ["blog", "blog", "Blog", "test", "bloG", "Test", "BLOG"]
+coverImage:
+  src: "../../assets/cover.png"
+  alt: "Astro build wallpaper"
 ---
 
 ## This post is to test zod transform

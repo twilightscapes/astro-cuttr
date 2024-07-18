@@ -4,6 +4,9 @@ description: "This post describes the process of adding webmentions to your own 
 publishDate: "11 Oct 2023"
 tags: ["webmentions", "astro", "social"]
 updatedDate: 8 April 2024
+coverImage:
+  src: "../../../assets/cover.png"
+  alt: "Astro build wallpaper"
 ---
 
 ## TLDR
