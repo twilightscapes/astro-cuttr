@@ -6,13 +6,15 @@ body{z-index: 0; background:var(--theme-ui-colors-siteBackground);overscroll-beh
 
 :root{--button-alternate-color:#e3272d;--button-color:#e5c3d3;--font-family:-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,Ubuntu,roboto,noto,segoe ui,arial,sans-serif;--font-family-mono:Menlo,Consolas,Monaco,Liberation Mono,Lucida Console,monospace;--font-size-small:12px;--grid-gap:30px;--home-link-color:#d4d4d4;--home-link-hover-color:var(--primary-color);--input-focus-border:#83aaac;--label-text:#777;--nav-link-hover-bg:#111;--post-link-color:#0f070b;--text-color-meta:rgba(0,0,0,.5), height:100vh;}
 
+#menu,.menu,.font,.full-width-image:after,.h1,.h2,.h3,.h4,.header .menu-icon:before,.slider:before,.intro:after,.intro:before,.scrolldown,h1,h2,h3,h4,input.special{font-family:Comfortaa;}
+
 
 body.install .topmenu, body.install .missioncontrol{visibility: hidden;}
 
 
 header.header {height:0;}
 
-#menu{margin-bottom: 5vh;}
+#menu{margin-bottom: 3vh;}
 body.install #menu{margin-bottom: 0;}
 
 .container { 
@@ -36,6 +38,8 @@ body.install #menu{margin-bottom: 0;}
 .grid-container .gatsby-image-wrapper img{
   margin:0 auto;
 }
+
+.post-card1 h2{border:0 solid red;font-size:clamp(1rem, 1.2vw, 1.4rem);width:100%}
 
 .grid-container {
   display: grid;
@@ -158,6 +162,8 @@ body.install #menu{margin-bottom: 0;}
     place-content: center;
     width:100vw;
     height: 100%;
+    justify-content: center;
+    text-align: center;
   }
 
 
@@ -176,10 +182,12 @@ min-width: 80vw;
   }
 
 
-  .post-card1 h2{font-family: inherit !important; font-weight: bold;}
+  .title1, .title{font-size:clamp(1rem, 1.5vw, 2rem);}
+  .post-card1 h2{ font-weight: bold;}
 
+  .post-card1 a{font-size:clamp(1rem, 1.2vw, 1.8rem); text-decoration: none; border:none; text-align: left;}
 
-
+  .snippet {font-size:clamp(1rem, 1.2vw, 1.8rem); text-decoration: none; border:none; text-align: left; max-width: 80vw; margin:0 auto;}
 
   @media(hover:none) {
     .slider{scroll-snap-type:mandatory}

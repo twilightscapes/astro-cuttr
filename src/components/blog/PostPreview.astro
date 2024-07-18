@@ -57,12 +57,12 @@ const { post, withDesc = false } = Astro.props;
 
 			{
 				withDesc && (
-					<q
-						class="line-clamp-1 block"
+					<div
+						class="line-clamp-1 block snippet"
 						style={{ maxWidth: "",  }}
 					>
 						{post.data.description}
-					</q>
+					</div>
 				)
 			}
 		</div>
