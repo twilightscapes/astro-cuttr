@@ -109,7 +109,7 @@ function Switch() {
         ) : (
           <div className="themer"><PiHandSwipeRightFill style={{ width: '36px', height: '30px' }} /></div>
         )}
-        <span className="themetext" style={{ fontSize: '.6rem' }}>
+        <span className="themetext">
           {isSliderVisible ? "Scroll" : "Swipe"}
         </span>
       </button>

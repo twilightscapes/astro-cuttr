@@ -2,7 +2,7 @@ html{min-height:100dvh; z-index: -1;}
 
 body{z-index: 0; overscroll-behavior:none; min-height:100dvh; max-width: 100dvw; width:100vw; overflow-x: hidden; margin:0 auto; padding:0;}
 
-::-webkit-scrollbar,::-webkit-scrollbar-button{height:1px;width:1px}
+::-webkit-scrollbar,::-webkit-scrollbar-button{height:0px;width:0px}
 
 :root{--button-alternate-color:#e3272d;--button-color:#e5c3d3;--font-family:-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,Ubuntu,roboto,noto,segoe ui,arial,sans-serif;--font-family-mono:Menlo,Consolas,Monaco,Liberation Mono,Lucida Console,monospace;--font-size-small:12px;--grid-gap:30px;--home-link-color:#d4d4d4;--home-link-hover-color:var(--primary-color);--input-focus-border:#83aaac;--label-text:#777;--nav-link-hover-bg:#111;--post-link-color:#0f070b;--text-color-meta:rgba(0,0,0,.5), height:100vh;}
 
@@ -19,6 +19,15 @@ header.header {height:0;}
 body.install #menu{margin-bottom: 0;}
 body.map #menu {margin-bottom:0;}
 body.map #gobacker {display:none;}
+
+#gobacker {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  padding: .5vh .5vw;
+  background:hsl(202, 43%, 15%);
+  border-radius:9px;
+}
 
 
 .container { 
@@ -48,6 +57,11 @@ body.homepage #gobacker{display:none;}
 }
 
 .post-card1 h2{border:0 solid red;font-size:clamp(1rem, 1.2vw, 1.4rem);width:100%}
+
+
+
+
+.themetext{border:0 solid red;font-size:.6rem;margin-top: 4px;}
 
 .grid-container {
   display: grid;
