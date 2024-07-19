@@ -20,13 +20,16 @@ body.install #menu{margin-bottom: 0;}
 body.map #menu {margin-bottom:0;}
 body.map #gobacker {display:none;}
 
+
+body.map::has(#gobacker, footer){display:none;}
+
 #gobacker {
   display: flex;
   align-items:center;
   justify-content: center;
   padding: .5vh .5vw;
   background:hsl(202, 43%, 15%);
-  border-radius:9px;
+  border-Radius:9px;
 }
 
 
