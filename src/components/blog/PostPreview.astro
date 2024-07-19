@@ -27,7 +27,7 @@ const defaultImageHeight = 630; // Specify the height of the default image
 		) : post.data.coverImage && typeof post.data.coverImage === "string" ? (
 		<img
 				src={defaultImageSrc}
-				alt="Default cover image"
+				alt="Default cover"
 				class="object-cover"
 				loading="eager"
 				fetchpriority="high"
@@ -37,7 +37,7 @@ const defaultImageHeight = 630; // Specify the height of the default image
 		) : (
 		<img
 				src={defaultImageSrc}
-				alt="Default cover image"
+				alt="Default cover"
 				class="object-cover"
 				loading="eager"
 				fetchpriority="high"

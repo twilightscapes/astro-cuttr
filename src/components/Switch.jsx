@@ -95,23 +95,19 @@ function Switch() {
         }}
         className="swipescroll"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
           marginTop: "0px",
           textAlign: "center",
-          height: "45px",
+          height: "",
         }}
       >
         {isSliderVisible ? (
-          <div className="themer"><BsFillGrid3X2GapFill style={{ width: '36px', height: '36px' }} /></div>
+          <div className="themer"><BsFillGrid3X2GapFill style={{ width: '36px', height: '30px' }} /></div>
         ) : (
-          <div className="themer"><PiHandSwipeRightFill style={{ width: '36px', height: '36px' }} /></div>
+          <div className="themer"><PiHandSwipeRightFill style={{ width: '36px', height: '30px' }} /></div>
         )}
-        <span className="themetext">
+        <div className="themetext" style={{marginTop:'10px'}}>
           {isSliderVisible ? "Scroll" : "Swipe"}
-        </span>
+        </div>
       </button>
     </div>
   );
