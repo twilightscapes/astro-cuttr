@@ -3,7 +3,8 @@ import SocialList from "@/components/SocialList.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import { getAllPosts, sortMDByDate } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
-
+import { Image } from "astro:assets";
+import aboutImg from "@/assets/header-lawncaresimple.webp";
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
@@ -53,18 +54,57 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 ---
 <body class="homepage">
 <PageLayout meta={{ title: "Home" }}>
-	<!-- <section style="padding:60px 5% 0 5%">
-		<h1 class="title mb-6">Hello World!</h1>
-		<p class="mb-4">
-			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
-			blog. If you want to know more about how you can customise me, add more posts, and make it
-			your own, click on the github icon link below and it will take you to my repo.
-		</p>
-		<SocialList />
-	</section> -->
+	<section style="padding:0">
+		
+
+		<Image
+				alt="A cartoon cactus looking at the 'Astro.build' logo"
+				fetchpriority="high"
+				loading="eager"
+				src={aboutImg}
+			/>
+			<!-- <h1 class="title mb-6">Hello World!</h1> -->
+	</section>
 
 
-	<div class="scroll-container">
+
+
+		<div class="flexbutt" style={{ padding: "2%", width:'100%', maxWidth: "100vw", margin: "0 auto", display: "", flexDirection: "", justifyContent: "center", alignItems:'', gap:'2vw', }}>
+	  
+
+		
+	
+		  <iframe title="location map" class="flexcheek beta" width="100%" height="500" frame-border="0" scrolling="no" margin-height="0" margin-width="0" src="/maptest" allow-full-screen={true} loading="lazy" style={{maxWidth:'100%', width:'75vw', minHeight:'60vh', margin:'0 auto', border:'.5vw solid rgba(0,0,0,0.60)', borderRadius:'12px', pointerEvents:'none'}}></iframe>
+		  
+		  
+	  
+	  
+		  <div class="flexcheek" style={{maxWidth:'100%', gap:'', paddingRight:'10px', display:'flex', }}>
+		  
+		  {/* <StaticImage src="../../static/assets/measure-tool.png" alt="Default Image" style={{height:'auto', maxHeight:'100vh', position:'relative', zIndex:'0', top:'0',border:'1px solid #222', borderRadius:'8px', objectFit:'contain', margin:'0 auto'}} /> */}
+	  
+		  <div class="" style={{ display: 'flex', justifyContent: 'center', alignItems:'center', padding:'1vh 1vw', textDecoration:'none', width:'95%', borderRadius:'12px', margin:'50px auto 0 auto', textAlign:'center', fontSize:'clamp(1.5rem, 2vw, 1.8rem)', background: 'rgba(8, 44, 20, 0.9)',  backdropFilter: 'blur(4px)', border:'1px solid #333', color:'#fff' }}>
+	  
+		Beta Begins Soon!<br /></div>
+	  
+	  
+		<!-- <NewSign /> -->
+	  
+	  
+		
+		  </div>
+		</div>
+	  
+	  
+
+	  
+	  <div>
+	  </div>
+
+
+
+
+	<div class="scroll-container" style={{display:'none'}}>
 		<!-- <h1 class="center title">Welcome to this website</h1> -->
 		<!-- <div class="contentpanel horizontal-scroll panels"> -->
 		<div class="contentpanel grid-container panels">

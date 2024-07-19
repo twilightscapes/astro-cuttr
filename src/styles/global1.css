@@ -51,6 +51,7 @@ header.header {height:0;}
 body.blog #menu {margin-bottom:0;}
 body.install #menu{margin-bottom: 0;}
 body.map #menu {margin-bottom:0;}
+body.homepage #menu {margin-bottom:0;}
 body.map #gobacker {display:none;}
 
 
@@ -68,6 +69,11 @@ body.map .topmenu, body.map #missioncontrol{visibility: hidden;}
   border-Radius:9px;
 }
 
+
+.flexbutt{display:flex; }
+.flexcheek{
+  /* position:-webkit-sticky;position:sticky;top:0; */
+  width:50%}
 
 .container { 
   display: grid;
