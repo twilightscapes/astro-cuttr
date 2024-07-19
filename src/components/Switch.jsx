@@ -101,7 +101,7 @@ function Switch() {
           alignItems: "center",
           marginTop: "0px",
           textAlign: "center",
-          width: "100%",
+          height: "45px",
         }}
       >
         {isSliderVisible ? (
