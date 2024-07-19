@@ -8,6 +8,7 @@ body{z-index: 0; overscroll-behavior:none; min-height:100dvh; max-width: 100dvw;
 
 #menu,.menu,.font,.full-width-image:after,.h1,.h2,.h3,.h4,.header .menu-icon:before,.slider:before,.intro:after,.intro:before,.scrolldown,h1,h2,h3,h4,input.special{font-family:Geologica;}
 
+main{font-family:-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,Ubuntu,roboto,noto,segoe ui,arial,sans-serif;--font-family-mono:Menlo,Consolas,Monaco,Liberation Mono,Lucida Console,monospace; line-height: 1.5;}
 
 body.install .topmenu, body.install .missioncontrol, body.install #gobacker{visibility: hidden;}
 
@@ -65,7 +66,7 @@ body.homepage #gobacker{display:none;}
 
 
 
-.themetext{border:0 solid red;font-size:.6rem;margin-top: 4px;}
+.themetext{border:0 solid red;font-size:.5rem;margin-top: 0;}
 
 .grid-container {
   display: grid;
