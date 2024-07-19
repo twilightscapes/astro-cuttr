@@ -27,10 +27,10 @@ const { headings } = await post.render();
 		{!!headings.length && <TOC headings={headings} />}
 		<div class="" transition:animate="slide">
 			<article class="" data-pagefind-body>
-				<div id="blog-hero" style="width:100vw;"><BlogHero content={post} /></div>
+				<div id="blog-hero" style="width:100vw; z-index: 30000;"><BlogHero content={post} /></div>
 				{/* Render dynamic elements */}
 	
-				<!-- {!!headings.length && <TOC headings={headings} />} -->
+				{!!headings.length && <TOC headings={headings} />}
 				<div class="" style={{ padding: "0 4%", width:'98vw', margin:'0 auto' }}>
 					<!-- <img src={svgImage} /> -->
 	

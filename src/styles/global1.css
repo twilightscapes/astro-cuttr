@@ -63,7 +63,7 @@ body.map .topmenu, body.map #missioncontrol{visibility: hidden;}
   align-items:center;
   justify-content: center;
   padding: .5vh .5vw;
-  background:hsl(202, 43%, 15%);
+  background:hsl(138, 43%, 20%);
   color:#ddd;
   border-Radius:9px;
 }
@@ -179,7 +179,7 @@ body.homepage #gobacker{display:none;}
     left: inherit !important;
     bottom: inherit !important;
     border-radius: var(--theme-ui-colors-borderRadius) !important;
-    color:rgba(8, 44, 20, 0.5);
+    color:hsl(138, 43%, 20%);
   }
 
   .slider img{max-height:70vh;object-fit:contain; }
