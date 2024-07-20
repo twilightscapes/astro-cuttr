@@ -53,7 +53,7 @@ body.install #menu{margin-bottom: 0;}
 body.map #menu {margin-bottom:0;}
 body.homepage #menu {margin-bottom:0;}
 body.map #gobacker {display:none;}
-
+body.homepage footer{display:none;}
 
 body.map::has(#gobacker, footer){display:none;}
 body.map .topmenu, body.map #missioncontrol{visibility: hidden;}
