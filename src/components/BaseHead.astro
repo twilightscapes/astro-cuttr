@@ -127,15 +127,3 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 <link rel="apple-touch-startup-image" href="/siteimages/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
 <link rel="apple-touch-startup-image" href="/siteimages/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
 <link rel="apple-touch-startup-image" href="/siteimages/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
-
-<script>
-	if ('serviceWorker' in navigator) {
-	  navigator.serviceWorker.register('/sw.js')
-		.then((registration) => {
-		  console.log('Service Worker registered with scope:', registration.scope);
-		})
-		.catch((error) => {
-		  console.log('Service Worker registration failed:', error);
-		});
-	}
-  </script>
