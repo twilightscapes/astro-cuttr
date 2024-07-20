@@ -94,11 +94,6 @@ function Switch() {
           toggleSlider();
         }}
         className="swipescroll"
-        style={{
-          marginTop: "0px",
-          textAlign: "center",
-          height: "",
-        }}
       >
         {isSliderVisible ? (
           <div className="themer"><BsFillGrid3X2GapFill style={{ width: '36px', height: '30px' }} /></div>
