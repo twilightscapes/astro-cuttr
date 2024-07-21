@@ -6,6 +6,7 @@ import PageLayout from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
 import aboutImg from "@/assets/header-lawncaresimple.webp";
 
+import Map from "../pages/map-demo.astro";
 import NewSign from "../components/newssign";
 
 
@@ -77,8 +78,8 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 	  
 
 		
-	
-		  <iframe title="location map" class="flexcheek beta" width="100%" height="500" frame-border="0" scrolling="no" margin-height="0" margin-width="0" src="/map-demo/" allow-full-screen={true} loading="eager" style={{maxWidth:'100%', width:'100%', minHeight:'60vh', margin:'0 auto', border:'.5vw solid rgba(0,0,0,0.60)', borderRadius:'12px', pointerEvents:'none'}}></iframe>
+			<!-- <Map client:load /> -->
+		  <iframe title="location map" class="flexcheek beta" width="100%" height="500" frame-border="0" scrolling="no" margin-height="0" margin-width="0" src="/map-demo/" allow-full-screen={true} loading="eager" style={{maxWidth:'100%', width:'100%', minHeight:'60vh', margin:'0 auto', border:'.5vw solid rgba(0,0,0,0.60)', borderRadius:'12px', pointerEvents:''}}></iframe>
 		  
 		  
 	  
@@ -107,6 +108,37 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 	  
 	  <div>
 	  </div>
+
+
+
+	  <div class="scroll-container" style={{display:''}}>
+		<div class="contentpanel grid-container panels">
+
+
+
+
+
+
+
+
+		<!-- <div class="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div> -->
+
+<div class="post-card1" style="display:grid; place-content: center;  align-content:center; border:0px solid; width:380px; padding:2vh 10vw; margin:0 auto">Unit 1</div>
+
+<div class="post-card1"  style="display:grid; place-content: center;  align-content:center; border:0px solid; width:380px; padding:2vh 10vw; margin:0 auto">Unit 2</div>
+
+<div class="post-card1"  style="display:grid; place-content: center;  align-content:center; border:0px solid; width:380px; padding:2vh 10vw; margin:0 auto">Unit 3</div>
+
+</div>
+
+
+	  </div>
+
+
+
+
+
+
 
 	  <!-- <div
 	  style={{
