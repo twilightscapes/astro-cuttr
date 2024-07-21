@@ -2,6 +2,7 @@
 
 import { Image } from "astro:assets";
 import PageLayout from "@/layouts/Base.astro";
+import { GiButtonFinger } from "react-icons/gi";
 const meta = {
 	description: "I'm a starter theme for Astro.build",
 	title: "About",
@@ -131,8 +132,20 @@ const meta = {
     }
 </style>
 
-<div id="map"></div>
+<div id="map" class=""></div>
+
+
+
+
+
+
 <div id="area">Total Area: 0 sq ft<br>Cost per sq ft: $0.00<br>Cost: $0.00</div>
+
+
+
+
+
+
 <div style="display:flex; justify-content: center; align-items: center; position:relative; ">
     <input type="text" id="address" placeholder="Enter an address" style="color:#222;">
     <form name="map-form" method="POST" data-netlify="true" style="position: fixed; bottom: 0; left:0; right: 0; text-align: center; background: rgba(0,0,0,0.7); color:#fff; font-size: clamp(1.6rem,2.5vw,3rem); padding: 10px; z-index: 10000;">

@@ -23,8 +23,6 @@ button#to-top-btn {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-
-
   border: 2px solid transparent;
   display: flex;
   align-items: center;
@@ -32,6 +30,7 @@ button#to-top-btn {
   font-size: 24px;
   opacity: 0;
   transition: opacity 0.3s, transform 0.3s;
+  color:#fff;background: hsla(138, 52%, 29%, .8);
 }
 
 button#to-top-btn.show {
@@ -49,15 +48,19 @@ header.header {height:0;}
 
 #menu{margin-bottom: 3vh;}
 body.blog #menu {margin-bottom:0;}
-body.install #menu{margin-bottom: 0;}
+
 body.map #menu {margin-bottom:0;}
 body.homepage #menu {margin-bottom:0;}
 body.map #gobacker {display:none;}
 body.homepage footer{display:none;}
 
+
 body.map::has(#gobacker, footer){display:none;}
 body.map .topmenu, body.map #missioncontrol{visibility: hidden;}
 #missioncontrol{line-height: 1;}
+
+body.install #menu{display: none !important;}
+
 
 #gobacker {
   display: flex;
@@ -279,4 +282,102 @@ min-width: 80vw;
 
   @media(max-width:48rem) {
     .mobilehide{display:none}
+  }
+
+
+  @keyframes loader {
+    0%{opacity:0;}
+    90%{opacity:1;}
+    to{opacity:0;z-index:-3}
+    }
+  
+    @keyframes gridfadeout {
+      0%{
+        opacity: .5;
+     }
+  
+     99% {
+      opacity:0;
+   }
+  
+     to {
+        opacity:0;
+        z-index:-3;
+     }
+    }
+
+
+  .spud::before{
+    content:'Connecting to LAWN-SAT1';
+    position:absolute;
+    z-index: 30000;
+    width: 100vw;
+    height:100dvh;
+    top:0;
+    left:0;
+    right:0;
+    display:grid;
+    place-content: center;
+    /* background:rgba(0,0,0,0.50); */
+    background-image: url(../assets/grid-sq.png);
+    background-position: center;
+    background-size: cover;
+    object-fit:contain;
+    font-size:clamp(1rem,2.5vw,3.2rem);
+    font-family: "Geologica", sans-serif;
+    padding:20vh 0 0 0;
+    color:#ff0;
+    opacity: .9 !important;
+  
+    transition: all 0.6s ease-in-out; text-shadow: .3vw .2vh .2vw #444, 0 3px .3vw rgb(8, 202, 44),0px 2px .3vw rgb(240, 240, 240),0 2px rgb(39, 227, 102, .4),0 2px .3vw rgb(39, 227, 99),0 0 .3vw rgb(39, 227, 80),0 0 .2vw rgb(39, 227, 86),0 0 .3vw rgb(39, 227, 77);
+  
+    animation:loader;
+    animation-duration:6s;
+    animation-delay:0s;
+    animation-fill-mode:forwards;
+  }
+  
+  .spud::after{
+    content:'Positioning Satellite';
+    position:absolute;
+    z-index: 20000;
+    width: 100vw;
+    height:100dvh;
+    top:0;
+    left:0;
+    right:0;
+    display:grid;
+    place-content: center;
+    /* background:rgba(0,0,0,0.50); */
+    font-size:clamp(.5rem,6.5vw,3.2rem) !important;
+    font-family: "Geologica", sans-serif;
+    color:#fff;
+    transition: all 0.2s ease-in-out; text-shadow: .3vw .2vh .2vw #444, 0 3px .3vw rgb(8, 202, 44),0px 2px .3vw rgb(240, 240, 240),0 2px rgb(39, 227, 102, .4),0 2px .3vw rgb(39, 227, 99),0 0 .3vw rgb(39, 227, 80),0 0 .2vw rgb(39, 227, 86),0 0 .3vw rgb(39, 227, 77);
+    opacity:0;
+    animation:loader;
+    animation-duration:3s;
+    animation-delay:2s;
+    animation-fill-mode:forwards;
+  }
+  
+  .spud2::after{
+    content:'Ready For Target!';
+    position:absolute;
+    z-index: 20001;
+    width: 100vw;
+    height:100dvh;
+    top:-10vh;
+    left:0;
+    right:0;
+    display:grid;
+    place-content: center;
+    font-size:clamp(.4rem,10.5vw,3.2rem);
+    font-family: "Geologica", sans-serif;
+    color:#fff;
+    transition: all 0.2s ease-in-out; text-shadow: .3vw .2vh .2vw #444, 0 3px .3vw rgb(8, 202, 44),0px 2px .3vw rgb(240, 240, 240),0 2px rgb(39, 227, 102, .4),0 2px .3vw rgb(39, 227, 99),0 0 .3vw rgb(39, 227, 80),0 0 .2vw rgb(39, 227, 86),0 0 .3vw rgb(39, 227, 77);
+    opacity:0;
+    animation:loader;
+    animation-duration:3s;
+    animation-delay:3s;
+    animation-fill-mode:forwards;
   }
