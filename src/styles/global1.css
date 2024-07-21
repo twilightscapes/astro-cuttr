@@ -64,7 +64,7 @@ body.map .topmenu, body.map #missioncontrol{visibility: hidden;}
   align-items:center;
   justify-content: center;
   padding: .5vh .5vw;
-  background:hsl(138, 43%, 20%);
+  background: hsla(138, 52%, 29%, .8);
   color:#ddd;
   border-Radius:9px;
 }
@@ -82,7 +82,7 @@ body.map .topmenu, body.map #missioncontrol{visibility: hidden;}
   padding:20px;
 }
 
-#gobacker{position:fixed; display:flex; top:80px ; right:1vw; z-index:11;}
+#gobacker{position:fixed; display:flex; top:65px ; right:1vw; z-index:11;}
 body.homepage #gobacker{display:none;}
 
 .post-card1{

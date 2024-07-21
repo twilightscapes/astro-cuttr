@@ -96,11 +96,11 @@ function Switch() {
         className="swipescroll"
       >
         {isSliderVisible ? (
-          <div className="themer"><BsFillGrid3X2GapFill style={{ width: '36px', height: '30px' }} /></div>
+          <div className="themer"><BsFillGrid3X2GapFill style={{ width: '32px', height: '32px' }} /></div>
         ) : (
-          <div className="themer"><PiHandSwipeRightFill style={{ width: '36px', height: '30px' }} /></div>
+          <div className="themer"><PiHandSwipeRightFill style={{ width: '32px', height: '32px' }} /></div>
         )}
-        <div className="themetext" style={{marginTop:'10px'}}>
+        <div className="themetext" style={{marginTop:'8px'}}>
           {isSliderVisible ? "Scroll" : "Swipe"}
         </div>
       </button>
