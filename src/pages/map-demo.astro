@@ -196,82 +196,82 @@ const meta = {
 
         map.addControl(drawControl);
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var polygonButton = document.querySelector('.leaflet-draw-draw-polygon');
-            if (polygonButton) {
-                polygonButton.title = "Draw your yard boundary";
-            }
-        });
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     var polygonButton = document.querySelector('.leaflet-draw-draw-polygon');
+        //     if (polygonButton) {
+        //         polygonButton.title = "Draw your yard boundary";
+        //     }
+        // });
 
-        map.on(L.Draw.Event.CREATED, function (event) {
-            var layer = event.layer;
-            drawnItems.addLayer(layer);
-            updateQueryString();
-            calculateArea();
-        });
+        // map.on(L.Draw.Event.CREATED, function (event) {
+        //     var layer = event.layer;
+        //     drawnItems.addLayer(layer);
+        //     updateQueryString();
+        //     calculateArea();
+        // });
 
-        map.on(L.Draw.Event.EDITED, function (event) {
-            updateQueryString();
-            calculateArea();
-        });
+        // map.on(L.Draw.Event.EDITED, function (event) {
+        //     updateQueryString();
+        //     calculateArea();
+        // });
 
-        map.on(L.Draw.Event.DELETED, function (event) {
-            updateQueryString();
-            calculateArea();
-        });
+        // map.on(L.Draw.Event.DELETED, function (event) {
+        //     updateQueryString();
+        //     calculateArea();
+        // });
 
-        map.on('moveend', function(event) {
-            updateQueryString();
-        });
+        // map.on('moveend', function(event) {
+        //     updateQueryString();
+        // });
 
-        function updateQueryString() {
-            var bounds = drawnItems.toGeoJSON();
-            var encodedBounds = encodeURIComponent(JSON.stringify(bounds));
-            var center = map.getCenter();
-            var zoomLevel = map.getZoom();
-            var address = document.getElementById('address').value.trim();
-            var params = new URLSearchParams(window.location.search);
+        // function updateQueryString() {
+        //     var bounds = drawnItems.toGeoJSON();
+        //     var encodedBounds = encodeURIComponent(JSON.stringify(bounds));
+        //     var center = map.getCenter();
+        //     var zoomLevel = map.getZoom();
+        //     var address = document.getElementById('address').value.trim();
+        //     var params = new URLSearchParams(window.location.search);
             
-            params.set('bounds', encodedBounds);
-            params.set('zoom', zoomLevel);
-            params.set('lat', center.lat.toFixed(5));
-            params.set('lng', center.lng.toFixed(5));
-            if (address) {
-                params.set('address', encodeURIComponent(address));
-            } else {
-                params.delete('address'); 
-            }
+        //     params.set('bounds', encodedBounds);
+        //     params.set('zoom', zoomLevel);
+        //     params.set('lat', center.lat.toFixed(5));
+        //     params.set('lng', center.lng.toFixed(5));
+        //     if (address) {
+        //         params.set('address', encodeURIComponent(address));
+        //     } else {
+        //         params.delete('address'); 
+        //     }
             
-            var newUrl = window.location.pathname + '?' + params.toString();
-            window.history.replaceState({ path: newUrl }, '', newUrl);
+        //     var newUrl = window.location.pathname + '?' + params.toString();
+        //     window.history.replaceState({ path: newUrl }, '', newUrl);
 
-            document.getElementById('query').value = window.location.href;
-        }
+        //     document.getElementById('query').value = window.location.href;
+        // }
 
-        function calculateArea() {
-            var totalArea = 0;
-            drawnItems.eachLayer(function(layer) {
-                var geojson = layer.toGeoJSON();
-                var area = 0;
+        // function calculateArea() {
+        //     var totalArea = 0;
+        //     drawnItems.eachLayer(function(layer) {
+        //         var geojson = layer.toGeoJSON();
+        //         var area = 0;
 
-                // Check if geojson.geometry.type is 'Polygon'
-                if (geojson.geometry.type === 'Polygon') {
-                    area = turf.area(geojson);
-                }
-                // Update the total area
-                totalArea += area;
-            });
+        //         // Check if geojson.geometry.type is 'Polygon'
+        //         if (geojson.geometry.type === 'Polygon') {
+        //             area = turf.area(geojson);
+        //         }
+        //         // Update the total area
+        //         totalArea += area;
+        //     });
 
-            var areaText = document.getElementById('area');
-            var costPerSqFt = 0.01;
-            var totalCost = totalArea * costPerSqFt;
-            areaText.innerHTML = `Total Area: ${totalArea.toFixed(2)} sq ft<br>Cost per sq ft: $${costPerSqFt.toFixed(2)}<br>Cost: $${totalCost.toFixed(2)}`;
-            document.getElementById('cost').value = totalCost.toFixed(2);
-        }
+        //     var areaText = document.getElementById('area');
+        //     var costPerSqFt = 0.01;
+        //     var totalCost = totalArea * costPerSqFt;
+        //     areaText.innerHTML = `Total Area: ${totalArea.toFixed(2)} sq ft<br>Cost per sq ft: $${costPerSqFt.toFixed(2)}<br>Cost: $${totalCost.toFixed(2)}`;
+        //     document.getElementById('cost').value = totalCost.toFixed(2);
+        // }
 
-        document.querySelector('form[name="map-form"]').addEventListener('submit', function(event) {
-            document.getElementById('query').value = window.location.href;
-        });
+        // document.querySelector('form[name="map-form"]').addEventListener('submit', function(event) {
+        //     document.getElementById('query').value = window.location.href;
+        // });
 
         if (window.location.search) {
             var params = new URLSearchParams(window.location.search);
@@ -294,48 +294,48 @@ const meta = {
                 calculateArea();
             }
 
-            if (address) {
-                document.getElementById('address').value = decodeURIComponent(address);
-            }
+            // if (address) {
+            //     document.getElementById('address').value = decodeURIComponent(address);
+            // }
         }
 
-        var geocoder = L.Control.Geocoder.nominatim();
-        var control = L.Control.geocoder({
-            geocoder: geocoder,
-            placeholder: "Enter an address",
-            collapsed: false,
-            position: "topright" // Change position of search bar
-        }).addTo(map);
+        // var geocoder = L.Control.Geocoder.nominatim();
+        // var control = L.Control.geocoder({
+        //     geocoder: geocoder,
+        //     placeholder: "Enter an address",
+        //     collapsed: false,
+        //     position: "topright" // Change position of search bar
+        // }).addTo(map);
 
-        control.markGeocode = function(result) {
-            var bbox = result.bbox;
-            var poly = L.polygon([
-                [bbox.getSouthEast().lat, bbox.getSouthEast().lng],
-                [bbox.getNorthEast().lat, bbox.getNorthEast().lng],
-                [bbox.getNorthWest().lat, bbox.getNorthWest().lng],
-                [bbox.getSouthWest().lat, bbox.getSouthWest().lng]
-            ]).addTo(map);
-            map.fitBounds(poly.getBounds());
-            document.getElementById('address').value = result.name;
-            updateQueryString();
-        };
+        // control.markGeocode = function(result) {
+        //     var bbox = result.bbox;
+        //     var poly = L.polygon([
+        //         [bbox.getSouthEast().lat, bbox.getSouthEast().lng],
+        //         [bbox.getNorthEast().lat, bbox.getNorthEast().lng],
+        //         [bbox.getNorthWest().lat, bbox.getNorthWest().lng],
+        //         [bbox.getSouthWest().lat, bbox.getSouthWest().lng]
+        //     ]).addTo(map);
+        //     map.fitBounds(poly.getBounds());
+        //     document.getElementById('address').value = result.name;
+        //     updateQueryString();
+        // };
 
-        var addressInput = document.getElementById('address');
-        addressInput.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                geocoder.geocode(addressInput.value.trim(), function(results) {
-                    if (results && results.length > 0) {
-                        control.markGeocode(results[0]);
-                    }
-                });
-            }
+        // var addressInput = document.getElementById('address');
+        // addressInput.addEventListener('keydown', function(event) {
+        //     if (event.key === 'Enter') {
+        //         event.preventDefault();
+        //         geocoder.geocode(addressInput.value.trim(), function(results) {
+        //             if (results && results.length > 0) {
+        //                 control.markGeocode(results[0]);
+        //             }
+        //         });
+        //     }
         });
 
         // Recalculate area and cost when the map is moved
-        map.on('moveend', function(event) {
-            calculateArea();
-        });
-    });
+        // map.on('moveend', function(event) {
+        //     calculateArea();
+        // });
+    // });
 </script>
 
