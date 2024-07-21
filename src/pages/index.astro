@@ -5,6 +5,10 @@ import { getAllPosts, sortMDByDate } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
 import aboutImg from "@/assets/header-lawncaresimple.webp";
+
+import NewSign from "../components/newssign";
+
+
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
@@ -74,20 +78,23 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 		
 	
-		  <iframe title="location map" class="flexcheek beta" width="100%" height="500" frame-border="0" scrolling="no" margin-height="0" margin-width="0" src="/map-demo/" allow-full-screen={true} loading="eager" style={{maxWidth:'100%', width:'75vw', minHeight:'60vh', margin:'0 auto', border:'.5vw solid rgba(0,0,0,0.60)', borderRadius:'12px', pointerEvents:'none'}}></iframe>
+		  <iframe title="location map" class="flexcheek beta" width="100%" height="500" frame-border="0" scrolling="no" margin-height="0" margin-width="0" src="/map-demo/" allow-full-screen={true} loading="eager" style={{maxWidth:'100%', width:'100%', minHeight:'60vh', margin:'0 auto', border:'.5vw solid rgba(0,0,0,0.60)', borderRadius:'12px', pointerEvents:'none'}}></iframe>
 		  
 		  
 	  
 	  
-		  <div class="flexcheek" style={{maxWidth:'100%', gap:'', paddingRight:'10px', display:'flex', }}>
+		  <div class="flexcheek" style={{maxWidth:'100%', gap:'', paddingRight:'10px', display:'flex', alignItems:'start' }}>
 		  
 		  {/* <StaticImage src="../../static/assets/measure-tool.png" alt="Default Image" style={{height:'auto', maxHeight:'100vh', position:'relative', zIndex:'0', top:'0',border:'1px solid #222', borderRadius:'8px', objectFit:'contain', margin:'0 auto'}} /> */}
 	  
-		  <div class="" style={{ display: 'flex', justifyContent: 'center', alignItems:'center', padding:'1vh 1vw', textDecoration:'none', width:'95%', borderRadius:'12px', margin:'50px auto 0 auto', textAlign:'center', fontSize:'clamp(1.5rem, 2vw, 1.8rem)', background: 'rgba(8, 44, 20, 0.9)',  backdropFilter: 'blur(4px)', border:'1px solid #333', color:'#fff' }}>
+		  <div class="" style={{ display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems:'center', padding:'1vh 1vw', textDecoration:'none', width:'95%', borderRadius:'12px', margin:'50px auto 0 auto', textAlign:'center', fontSize:'clamp(1.5rem, 2vw, 1.8rem)', background: 'rgba(8, 44, 20, 0.9)',  backdropFilter: 'blur(4px)', border:'1px solid #333', color:'#fff' }}>
 	  
-		Beta Begins Soon!<br /></div>
+		Beta Begins Soon!<br />
+	
+		<NewSign client:load />
+	</div>
 	  
-	  
+		
 		<!-- <NewSign /> -->
 	  
 	  

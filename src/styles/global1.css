@@ -259,6 +259,9 @@ min-width: 80vw;
 
   .snippet {font-size:clamp(1rem, 1.2vw, 1.8rem); text-decoration: none; border:none; text-align: left; max-width: 80vw; margin:0 auto;}
 
+
+  #email::placeholder{color:rgb(234, 247, 235); font-size:clamp(.8rem,1.2vw,2.2rem) !important;}
+
   @media(hover:none) {
     .slider{scroll-snap-type:mandatory}
     .slider .post-card1 {
@@ -282,6 +285,8 @@ min-width: 80vw;
 
   @media(max-width:48rem) {
     .mobilehide{display:none}
+    .flexbutt{flex-direction:column}
+.flexcheek{position:inherit;top:inherit;width:100%}
   }
 
 
