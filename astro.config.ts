@@ -27,7 +27,49 @@ export default defineConfig({
 		sitemap(),
 		mdx(),
 		react(),
-		AstroPWA(),
+		AstroPWA({
+			mode: 'development',
+			base: '/',
+			scope: '/',
+			includeAssets: ['favicon.svg'],
+			registerType: 'autoUpdate',
+			manifest: {
+			  name: 'Cuttr',
+			  short_name: 'Cuttr',
+			  theme_color: 'hsl(133, 47%, 54%)',
+			  display: 'standalone',
+			  start_url: '/map',
+			  icons: [
+				{
+				  src: '192x192.png',
+				  sizes: '192x192',
+				  type: 'image/png',
+				},
+				{
+				  src: '512x512.png',
+				  sizes: '512x512',
+				  type: 'image/png',
+				},
+				{
+				  src: '512x512.png',
+				  sizes: '512x512',
+				  type: 'image/png',
+				  purpose: 'any maskable',
+				},
+			  ],
+			},
+			workbox: {
+			  navigateFallback: '/',
+			  globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}'],
+			},
+			devOptions: {
+			  enabled: true,
+			  navigateFallbackAllowlist: [/^\//],
+			},
+			experimental: {
+			  directoryAndTrailingSlashHandler: true,
+			}
+		  }),
 	],
 	markdown: {
 		rehypePlugins: [
