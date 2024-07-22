@@ -62,7 +62,7 @@ body.map .topmenu, body.map #missioncontrol{visibility: hidden;}
 body.install #menu{display: none !important;}
 
 
-#gobacker {
+#gobacker, .button {
   display: flex;
   align-items:center;
   justify-content: center;
@@ -71,6 +71,18 @@ body.install #menu{display: none !important;}
   color:#ddd;
   border-Radius:9px;
 }
+
+
+.button{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  padding: .5vh .5vw;
+  background: hsla(138, 52%, 29%, .8);
+  color:#ddd;
+  border-Radius:9px;
+}
+
 
 
 .flexbutt{display:flex; }
