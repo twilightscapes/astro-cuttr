@@ -48,6 +48,7 @@ header.header {height:0;}
 
 #menu{margin-bottom: 3vh;}
 body.blog #menu {margin-bottom:0;}
+body.blog footer {display: none !important;}
 
 body.map #menu {margin-bottom:0;}
 body.homepage #menu {margin-bottom:0;}
@@ -176,7 +177,7 @@ body.homepage #gobacker{display:none;}
 
   .sliderSpacer{display:none;}
   .slider .sliderSpacer{display:block; width:50%; height:50% ; }
-  .slider img{max-height:70vh;object-fit:contain; }
+  .slider img{max-height:68vh;object-fit:contain; }
   .slider {
     display: flex;
     flex-direction: row;

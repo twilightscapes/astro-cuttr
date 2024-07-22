@@ -12,11 +12,13 @@ const meta = {
 ---
 
 <PageLayout meta={meta}>
+	<div style="padding:0 4%">
 	<h1 class="title mb-6">Tags</h1>
-	<ul class="space-y-4">
+	<ul class="container" style="padding:3vh 1vw 0 1vw; margin:0;">
+		
 		{
 			allTags.map(([tag, val]) => (
-				<li class="flex items-center gap-x-2">
+				<li class="button">
 					<a
 						class="cactus-link inline-block"
 						data-astro-prefetch
@@ -26,10 +28,80 @@ const meta = {
 						&#35;{tag}
 					</a>
 					<span class="inline-block">
-						- {val} Post{val > 1 && "s"}
+						 ({val}) {val > 1 && ""}
 					</span>
 				</li>
 			))
 		}
+
+
+
+
+<li class="button">
+	<a
+		class="cactus-link inline-block"
+		data-astro-prefetch
+		href=""
+		title="View posts with the tag"
+	>
+		&#35;butt
+	</a>
+	<span class="inline-block">
+		 (1)
+	</span>
+</li>
+<li class="button">
+	<a
+		class="cactus-link inline-block"
+		data-astro-prefetch
+		href=""
+		title="View posts with the tag"
+	>
+		&#35;butt
+	</a>
+	<span class="inline-block">
+		 (1)
+	</span>
+</li>
+<li class="button">
+	<a
+		class="cactus-link inline-block"
+		data-astro-prefetch
+		href=""
+		title="View posts with the tag"
+	>
+		&#35;butt
+	</a>
+	<span class="inline-block">
+		 (1)
+	</span>
+</li>
+<li class="button">
+	<a
+		class="cactus-link inline-block"
+		data-astro-prefetch
+		href=""
+		title="View posts with the tag"
+	>
+		&#35;butt
+	</a>
+	<span class="inline-block">
+		 (1)
+	</span>
+</li>
+<li class="button">
+	<a
+		class="cactus-link inline-block"
+		data-astro-prefetch
+		href=""
+		title="View posts with the tag"
+	>
+		&#35;butt
+	</a>
+	<span class="inline-block">
+		 (1)
+	</span>
+</li>
 	</ul>
+</div>
 </PageLayout>
