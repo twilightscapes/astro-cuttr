@@ -1,6 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { BsFillGrid3X2GapFill } from "react-icons/bs";
-import { PiHandSwipeRightFill } from "react-icons/pi";
+
+// Dynamically load icons only on the client-side
+const useIcons = () => {
+  const [icons, setIcons] = useState({
+    BsFillGrid3X2GapFill: null,
+    PiHandSwipeRightFill: null,
+  });
+
+  useEffect(() => {
+    import("react-icons/bs").then(mod => {
+      setIcons(prevIcons => ({ ...prevIcons, BsFillGrid3X2GapFill: mod.BsFillGrid3X2GapFill }));
+    });
+    import("react-icons/pi").then(mod => {
+      setIcons(prevIcons => ({ ...prevIcons, PiHandSwipeRightFill: mod.PiHandSwipeRightFill }));
+    });
+  }, []);
+
+  return icons;
+};
 
 function Switch() {
   const [isSliderVisible, setIsSliderVisible] = useState(() => {
@@ -15,14 +32,14 @@ function Switch() {
     return false;
   });
 
+  const icons = useIcons();
+
   const toggleSlider = () => {
     setIsSliderVisible((prev) => {
       const newValue = !prev;
       if (typeof window !== 'undefined') {
         localStorage.setItem("isSliderVisible", JSON.stringify(newValue));
-        // Broadcast the change to other tabs/windows
         window.dispatchEvent(new StorageEvent("storage", { key: "isSliderVisible" }));
-        // Toggle class names globally
         const elements = document.querySelectorAll('.contentpanel');
         elements.forEach((el) => {
           if (newValue) {
@@ -40,7 +57,7 @@ function Switch() {
 
   useEffect(() => {
     const handleStorageChange = (event) => {
-      if (event.key === "isSliderVisible" && typeof window !== 'undefined') {
+      if (event.key === "isSliderVisible") {
         const storedValue = localStorage.getItem("isSliderVisible");
         setIsSliderVisible(JSON.parse(storedValue));
       }
@@ -90,17 +107,19 @@ function Switch() {
     <div>
       <button
         aria-label="Toggle View"
-        onClick={() => {
-          toggleSlider();
-        }}
+        onClick={toggleSlider}
         className="swipescroll"
       >
         {isSliderVisible ? (
-          <div className="themer"><BsFillGrid3X2GapFill style={{ width: '32px', height: '32px' }} /></div>
+          <div className="themer">
+            {icons.BsFillGrid3X2GapFill && <icons.BsFillGrid3X2GapFill style={{ width: '32px', height: '32px' }} />}
+          </div>
         ) : (
-          <div className="themer"><PiHandSwipeRightFill style={{ width: '32px', height: '32px' }} /></div>
+          <div className="themer">
+            {icons.PiHandSwipeRightFill && <icons.PiHandSwipeRightFill style={{ width: '32px', height: '32px' }} />}
+          </div>
         )}
-        <div className="themetext" style={{marginTop:'8px'}}>
+        <div className="themetext" style={{ marginTop: '8px' }}>
           {isSliderVisible ? "Scroll" : "Swipe"}
         </div>
       </button>
