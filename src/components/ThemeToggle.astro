@@ -3,7 +3,7 @@
         <button
             class="relative  transition-all"
             type="button"
-			style=" padding:4px 0 0 0 ;"
+            style=" padding:4px 0 0 0 ;"
         >
             <span class="sr-only">Dark Theme</span>
             <svg
@@ -15,7 +15,7 @@
                 stroke-width="1.5"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
-				style="width:30px; height:30px; margin-top: 0;"
+                style="width:30px; height:30px; margin-top: 0;"
             >
                 <path
                     d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
@@ -34,7 +34,7 @@
             <svg
                 aria-hidden="true"
                 class="absolute start-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all dark:scale-100 dark:opacity-100"
-				style="width:30px; height:28px; margin-top: 3px;"
+                style="width:30px; height:28px; margin-top: 3px;"
                 fill="none"
                 focusable="false"
                 id="moon-svg"
@@ -49,7 +49,9 @@
                 <path d="M19 11h2m-1 -1v2"></path>
             </svg>
         </button>
-        <div class="text-sm" style="margin-top:-5px;"><span class="themetext" id="theme-text">Light</span></div>
+        <div class="text-sm" style="margin-top:-5px;">
+            <span class="themetext" id="theme-text">Light</span>
+        </div>
     </div>
 </theme-toggle>
 
@@ -57,7 +59,7 @@
     import { rootInDarkMode } from "@/utils";
 
     class ThemeToggle extends HTMLElement {
-        #controller: AbortController;
+        #controller: AbortController = new AbortController();
 
         connectedCallback() {
             const button = this.querySelector("button");
@@ -76,7 +78,6 @@
             themeText.textContent = rootInDarkMode() ? "Dark" : "Light";
 
             // Abort signal
-            this.#controller = new AbortController();
             const { signal } = this.#controller;
 
             // button event
@@ -90,11 +91,13 @@
                     button.setAttribute("aria-checked", String(newTheme === "dark"));
 
                     // Dispatch event to change the theme
-                    document.dispatchEvent(new CustomEvent("theme-change", {
-                        detail: {
-                            theme: newTheme,
-                        }
-                    }));
+                    document.dispatchEvent(
+                        new CustomEvent("theme-change", {
+                            detail: {
+                                theme: newTheme,
+                            }
+                        })
+                    );
                 },
                 { signal }
             );
