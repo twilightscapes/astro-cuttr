@@ -1,24 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-// Dynamically load icons only on the client-side
-const useIcons = () => {
-  const [icons, setIcons] = useState({
-    BsFillGrid3X2GapFill: null,
-    PiHandSwipeRightFill: null,
-  });
-
-  useEffect(() => {
-    import("react-icons/bs").then(mod => {
-      setIcons(prevIcons => ({ ...prevIcons, BsFillGrid3X2GapFill: mod.BsFillGrid3X2GapFill }));
-    });
-    import("react-icons/pi").then(mod => {
-      setIcons(prevIcons => ({ ...prevIcons, PiHandSwipeRightFill: mod.PiHandSwipeRightFill }));
-    });
-  }, []);
-
-  return icons;
-};
-
 function Switch() {
   const [isSliderVisible, setIsSliderVisible] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -32,14 +13,30 @@ function Switch() {
     return false;
   });
 
-  const icons = useIcons();
+  const [icons, setIcons] = useState({
+    BsFillGrid3X2GapFill: null,
+    PiHandSwipeRightFill: null
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      import("react-icons/bs").then(mod => {
+        setIcons(prevIcons => ({ ...prevIcons, BsFillGrid3X2GapFill: mod.BsFillGrid3X2GapFill }));
+      });
+      import("react-icons/pi").then(mod => {
+        setIcons(prevIcons => ({ ...prevIcons, PiHandSwipeRightFill: mod.PiHandSwipeRightFill }));
+      });
+    }
+  }, []);
 
   const toggleSlider = () => {
     setIsSliderVisible((prev) => {
       const newValue = !prev;
       if (typeof window !== 'undefined') {
         localStorage.setItem("isSliderVisible", JSON.stringify(newValue));
+        // Broadcast the change to other tabs/windows
         window.dispatchEvent(new StorageEvent("storage", { key: "isSliderVisible" }));
+        // Toggle class names globally
         const elements = document.querySelectorAll('.contentpanel');
         elements.forEach((el) => {
           if (newValue) {
@@ -57,7 +54,7 @@ function Switch() {
 
   useEffect(() => {
     const handleStorageChange = (event) => {
-      if (event.key === "isSliderVisible") {
+      if (event.key === "isSliderVisible" && typeof window !== 'undefined') {
         const storedValue = localStorage.getItem("isSliderVisible");
         setIsSliderVisible(JSON.parse(storedValue));
       }
@@ -107,7 +104,9 @@ function Switch() {
     <div>
       <button
         aria-label="Toggle View"
-        onClick={toggleSlider}
+        onClick={() => {
+          toggleSlider();
+        }}
         className="swipescroll"
       >
         {isSliderVisible ? (
